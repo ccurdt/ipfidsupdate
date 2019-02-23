@@ -1095,6 +1095,9 @@ sub check_for_updates( $ )
 
   my $Version = `snort -V 2>&1 | grep 'Version'`;
   my ($v) = $Version =~ m/(\d+\.[\d\.]*)/;
+  if ($v eq '2.9.12') {
+    $v = $v . '0';
+  }
   $v =~ s/\.//g if ($v);
   $vrt_v = $v if ($v);
 
